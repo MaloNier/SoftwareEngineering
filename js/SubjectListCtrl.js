@@ -32,7 +32,9 @@ SubjectListCtrl.prototype.showList = function() {
  * @param {int} id 科目ID
  * @return void
  */
-SubjectListCtrl.prototype.show = function(id) {}
+SubjectListCtrl.prototype.show = function(id) {
+	
+}
 
 /**
  * レビューを投稿

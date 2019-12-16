@@ -17,7 +17,7 @@ class Review {
 	 * @return string レビュー文
 	 */
 	public function getText() {
-		return;
+		return $text;
 	}
 
 	/**
@@ -26,6 +26,6 @@ class Review {
 	 * @return void
 	 */
 	public function setText($text) {
-		return;
+		$this->text = $text;
 	}
 }

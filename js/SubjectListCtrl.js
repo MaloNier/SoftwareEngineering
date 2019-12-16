@@ -12,7 +12,19 @@ function SubjectListCtrl() {}
  *
  * @return void
  */
-SubjectListCtrl.prototype.showList = function() {}
+SubjectListCtrl.prototype.showList = function() {
+	$.getJSON('../php/Student.php', { method: 'subjects'},
+		function(json) {
+			for(var id of json) {
+				$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
+					function(title) {
+						$('#subjects').append('<li>'+title+'</li>');
+					}
+				);
+			}
+		}
+	);
+}
 
 /**
  * レビューを表示

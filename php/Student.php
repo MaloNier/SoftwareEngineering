@@ -1,4 +1,7 @@
 <?php
+header('content-type: application/json; charset=utf-8');
+ini_set('display_errors',1);
+
 /**
  * 学生のエンティティクラス
  *
@@ -8,7 +11,7 @@
  * @method void setReview()
  */
 class Student {
-	private studentNo = 0;
+	private $studentNo = 0;
 
 	/**
 	 * 履修している科目のidリストを返す
@@ -16,7 +19,8 @@ class Student {
 	 * @return int[] 履修している科目のidリスト
 	 */
 	public function subjects() {
-		return;
+		$idArray = [0,1,2,3,4,5,6,7,8,9];
+		return $idArray;
 	}
 
 	/**
@@ -40,3 +44,13 @@ class Student {
 		return;
 	}
 }
+
+$st = new Student();
+
+if($_GET['method'] === 'subjects') {
+	echo json_encode($st->subjects());
+}
+else {
+	echo json_encode(array('error'=>"unknown_method"));
+}
+exit();

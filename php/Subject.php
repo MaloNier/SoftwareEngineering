@@ -28,7 +28,10 @@ class Subject {
 	 * @return string 科目名
 	 */
 	public function getTitle($id) {
-		return $this->title;
+		if ($this->id == $id) {
+			return $this->title;
+		}
+		return 0;
 	}
 }
 
@@ -45,7 +48,11 @@ $sb = [
 	new Subject(9, 'データサイエンス概論'),
 ];
 
-if($_GET['method'] === 'getTitle') {
+if($_GET['method'] === 'getTitle') { // sd_1
 	$id = $_GET['id'];
-	echo json_encode($sb[$id]->getTitle($id));
+	$subject = [
+		"title" => $sb[$id]->getTitle($id),
+		"id" => $id
+	];
+	echo json_encode($subject);
 }

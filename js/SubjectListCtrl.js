@@ -17,8 +17,8 @@ SubjectListCtrl.prototype.showList = function() {
 		function(json) {
 			for(var id of json) {
 				$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
-					function(title) {
-						$('#subjects').append('<li>'+title+'</li>');
+					function(subject) {
+						$('#subjects').append('<li><a id="sub_'+subject['id']+'" href="../html/ShowReview.html?sub='+subject['id']+'">'+subject['title']+'</a></li>');
 					}
 				);
 			}
@@ -32,9 +32,7 @@ SubjectListCtrl.prototype.showList = function() {
  * @param {int} id 科目ID
  * @return void
  */
-SubjectListCtrl.prototype.show = function(id) {
-	
-}
+SubjectListCtrl.prototype.show = function(id) {}
 
 /**
  * レビューを投稿

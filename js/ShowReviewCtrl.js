@@ -12,18 +12,18 @@ function ShowReviewCtrl() {}
  * @param {int} id 科目ID
  * @return void
  */
-SubjectReviewCtrl.prototype.show = function(id) {}
+ShowReviewCtrl.prototype.show = function(id) {}
 
 /**
  * レビュー文を編集
  * @param {int} id 科目ID
  * @return void
  */
-SubjectReviewCtrl.prototype.edit = function(id) {}
+ShowReviewCtrl.prototype.edit = function(id) {}
 
 /**
  * レビュー文表示を終了
  *
  * @return void
  */
-SubjectReviewCtrl.prototype.close = function() {}
+ShowReviewCtrl.prototype.close = function() {}

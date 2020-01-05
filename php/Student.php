@@ -2,6 +2,7 @@
 header('content-type: application/json; charset=utf-8');
 ini_set('display_errors',1);
 
+require 'Review.php';
 /**
  * 学生のエンティティクラス
  *
@@ -30,7 +31,7 @@ class Student {
 	 * @return string 対象の科目のレビュー
 	 */
 	public function getReview($id) {
-		return;
+		return $this->tempReview[$id].getText($id);
 	}
 
 	/**
@@ -40,17 +41,31 @@ class Student {
 	 * @param string $text 登録するレビュー文
 	 * @return void
 	 */
-	public function setReview($d, $text) {
+	public function setReview($id, $text) {
 		return;
 	}
 }
 
 $st = new Student();
+$st->tempReview = [
+	new Review(0, 'temp00'),
+	new Review(1, 'temp01'),
+	new Review(2, 'temp02'),
+	new Review(3, 'temp03'),
+	new Review(4, 'temp04'),
+	new Review(5, 'temp05'),
+	new Review(6, 'temp06'),
+	new Review(7, 'temp07'),
+	new Review(8, 'temp08'),
+	new Review(9, 'temp09')
+];
 
 if($_GET['method'] === 'subjects') {
 	echo json_encode($st->subjects());
 }
-else {
-	echo json_encode(array('error'=>"unknown_method"));
+else if($_GET['method'] === 'getReviewText') {
+	$id = $_GET['id'];
+	$review = $st->getReview($id);
+	echo json_encode($review);
 }
 exit();

@@ -20,6 +20,9 @@
 		<script src="../js/EditReviewCtrl.js"></script>
 
 		<script>
+			/**
+			 * ページの再読み込み
+			 */
 			function reload() {
 				window.location.reload();
 			}
@@ -42,7 +45,21 @@
 			$(function() {
 				var slc = new SubjectListCtrl();
 				slc.showList();
-			})
+			});
+
+			$(function() {
+				var slc = new SubjectListCtrl();
+				$('#subjects').on('click', '.subject',
+					function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						var id = $(this).attr('id');
+						id = parseInt(id.replace('sub_', ''), 10);
+						alert(id);
+						slc.show(id);
+					}
+				);
+			});
 		</script>
 	</body>
 </html>

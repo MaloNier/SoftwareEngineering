@@ -4,6 +4,7 @@
  *
  * @property int $subjectId 科目ID
  * @property string $text レビュー文
+ * @property array $tempReview 課題を満たすためのとりあえずのレビュー
  * @method string getText()
  * @method void setText()
  */
@@ -19,7 +20,7 @@ class Review {
 	 */
 	function __construct($subjectId, $review) {
 		$this->subjectId = $subjectId;
-		$this->review = $review;
+		$this->text = $review;
 	}
 
 	/**
@@ -27,7 +28,7 @@ class Review {
 	 *
 	 * @return string レビュー文
 	 */
-	public function getText() {
+	public function getText($id) {
 		return $text;
 	}
 
@@ -40,16 +41,3 @@ class Review {
 		$this->text = $text;
 	}
 }
-
-$sbReview = [
-	new Review(0, 'temp00'),
-	new Review(1, 'temp01'),
-	new Review(2, 'temp02'),
-	new Review(3, 'temp03'),
-	new Review(4, 'temp04'),
-	new Review(5, 'temp05'),
-	new Review(6, 'temp06'),
-	new Review(7, 'temp07'),
-	new Review(8, 'temp08'),
-	new Review(9, 'temp09')
-];

@@ -33,9 +33,14 @@ SubjectListCtrl.prototype.showList = function() {
  * @return void
  */
 SubjectListCtrl.prototype.show = function(id) {
+	$.ajaxSetup({async: false}); // 動作を同期に
+
 	var src = new ShowReviewCtrl();
-	subList = src.show(id);
+	subList = src.show(id); // 科目名とレビューを取得
 	alert('subList:'+subList);
+	location.href = '../html/ShowReview.html?subject='+subList['title']+'&review='+subList['review'];
+
+	$.ajaxSetup({async: true}); // 動作を非同期に
 }
 
 /**

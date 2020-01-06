@@ -1,4 +1,7 @@
 <?php
+header('content-type: application/json; charset=utf-8');
+ini_set('display_errors',1);
+
 /**
  * 科目毎のレビューのエンティティクラス
  *
@@ -29,7 +32,7 @@ class Review {
 	 * @return string レビュー文
 	 */
 	public function getText($id) {
-		return $text;
+		return $this->text;
 	}
 
 	/**

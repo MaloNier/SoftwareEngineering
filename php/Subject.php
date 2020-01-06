@@ -1,4 +1,7 @@
 <?php
+header('content-type: application/json; charset=utf-8');
+ini_set('display_errors',1);
+
 /**
  * 科目のエンティティクラス
  *

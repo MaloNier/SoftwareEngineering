@@ -17,21 +17,23 @@ ShowReviewCtrl.prototype.show = function(id) {
 	var review = '';
 
 	//$.ajaxSetup({async: false});
-	$.when(
-		$.getJSON('../php/Subject.php', { method: 'getTitle', id: id}),
-		//$.getJSON('../php/Student.php', { method: 'getReviewText', id: id})
-	)
-	.done(
-		function(subject, reviewText) {
+	// 科目名を取得
+	$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
+		function(subject) {
 			title = subject['title'];
-			alert('title:'+title);
-
-			review = reviewText;
-			alert('review:'+review);
+			// alert('title: '.title);
 		}
 	);
+
+	// 科目のレビューを取得
+	$.getJSON('../php/Student.php', { method: 'getReviewText', id: id},
+		function(reviewText) {
+			review = reviewText;
+			// alert('review: '.review);
+		}
+	)
 	//$.ajaxSetup({async: true});
-	return [title, review];
+	return {title: title, review: review};
 }
 
 /**

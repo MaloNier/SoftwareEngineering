@@ -31,7 +31,7 @@ class Student {
 	 * @return string 対象の科目のレビュー
 	 */
 	public function getReview($id) {
-		return $this->tempReview[$id].getText($id);
+		return $this->tempReview[$id]->getText($id);
 	}
 
 	/**

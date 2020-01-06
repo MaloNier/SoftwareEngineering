@@ -33,7 +33,7 @@ ShowReviewCtrl.prototype.show = function(id) {
 		}
 	)
 	//$.ajaxSetup({async: true});
-	return {title: title, review: review};
+	return {id: id, title: title, review: review};
 }
 
 /**

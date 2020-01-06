@@ -18,9 +18,32 @@
 	</head>
 	<body>
 		<h1 id="title"></h1>
-		<h2>レビュー文</h2>
 		<p id="review"></p>
 
-		<input type="button" value="編集">
+		<input type="button" value="編集"/>
 	</body>
+
+	<!-- レビュー文を表示 -->
+	<script>
+		// QUERY_STRINGを分解
+		var query_string = window.location.search;
+		var query_array = [], length = 0, hash = '', query = '';
+
+		// ?を取り除いて&で区切る
+		hash = query_string.slice(1).split('&');
+		length = hash.length;
+
+		// query_stringをkeyとvalueに分けてquery_arrayに格納
+		for(var i=0; i<length; i++) {
+			query = hash[i].split('='); // keyとvalueに分ける
+			query_array.push(query[0]);
+			query_array[query[0]] = decodeURI(query[1]);
+			//alert('q0='+query[0]+' q1='+decodeURI(query[1]));
+
+		}
+		//alert('query: '+query_array['title']);
+		// レビュー画面に反映
+		$('#title').html(query_array['title']);
+		$('#review').html('レビュー: '+query_array['review']);
+	</script>
 </html>

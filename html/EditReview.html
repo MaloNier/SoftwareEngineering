@@ -20,19 +20,33 @@
 		<script src="../js/ShowReviewCtrl.js"></script>
 		<script src="../js/EditReviewCtrl.js"></script>
 
+		<script>
+			var query_array = getQueryString();
+			var editReviewCtrl = new EditReviewCtrl();
+
+			function editData() {
+				var newReview = $('textarea[name="newReview"]').val();
+				var id = query_array['id'];
+				editReviewCtrl.save(id, newReview);
+			}
+		</script>
+
 		<title>和歌山大学 履修登録</title>
 	</head>
 	<body>
 		<h1 id="title"></h1>
 		<form method="post">
 			<textarea name="newReview" cols="100" rows="15" placeholder="ここにレビューを入力してください"></textarea>
-			<p><input type="submit" value="保存"/></p>
+
+			<input type="button" value="保存" onclick="editData();"/>
+			<input type="button" value="キャンセル" onclick="editReviewCtrl.cancel();"/>
 		</form>
 	</body>
 
 	<script>
-		query_array = getQueryString();
 		// レビュー画面に反映
 		$('#title').html(query_array['title']);
+		$('#subject_id').val(query_array['id']);
+
 	</script>
 </html>

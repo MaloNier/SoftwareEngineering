@@ -30,7 +30,7 @@ class Student {
 	 * @param int $id 対象の科目id
 	 * @return string 対象の科目のレビュー
 	 */
-	public function getReview($id) {
+	public function getReviewText($id) {
 		return $this->tempReview[$id]->getText($id);
 	}
 
@@ -41,7 +41,7 @@ class Student {
 	 * @param string $text 登録するレビュー文
 	 * @return void
 	 */
-	public function setReview($id, $text) {
+	public function setReviewText($id, $text) {
 		return;
 	}
 }
@@ -65,7 +65,12 @@ if($_GET['method'] === 'subjects') {
 }
 else if($_GET['method'] === 'getReviewText') {
 	$id = $_GET['id'];
-	$review = $st->getReview($id);
+	$review = $st->getReviewText($id);
 	echo json_encode($review);
+}
+else if($_GET['method'] === 'setReviewText') {
+	$id = $_GET['id'];
+	$text = $_GET['text'];
+	$st->tempReview[$id]->setText($text);
 }
 exit();

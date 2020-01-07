@@ -46,11 +46,21 @@ EditReviewCtrl.prototype.edit = function(id) {
  * @param {string} text レビュー文
  * @return {void}
  */
-EditReviewCtrl.prototype.save = function(id, text) {}
+EditReviewCtrl.prototype.save = function(id, text) {
+	$.ajaxSetup({async: false}); // 動作を同期に
+
+	$.getJSON('../php/Subject.php', { method: 'setReviewText', id: id, text: text}, function() {});
+	location.href = '../html/SubjectList.html';
+
+	$.ajaxSetup({async: true}); // 動作を非同期に
+
+}
 
 /**
  * レビュー文編集を中断する
  *
  * @return {void}
  */
-EditReviewCtrl.prototype.cancel = function() {}
+EditReviewCtrl.prototype.cancel = function() {
+	location.href = '../html/SubjectList.html';
+}

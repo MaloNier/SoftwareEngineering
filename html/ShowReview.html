@@ -14,6 +14,12 @@
 		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
+		<!-- Original JavaScript -->
+		<script src="../js/common.js"></script>
+		<script src="../js/SubjectListCtrl.js"></script>
+		<script src="../js/ShowReviewCtrl.js"></script>
+		<script src="../js/EditReviewCtrl.js"></script>
+
 		<title>和歌山大学 履修登録</title>
 	</head>
 	<body>
@@ -25,21 +31,7 @@
 
 	<!-- レビュー文を表示 -->
 	<script>
-		// QUERY_STRINGを分解
-		var query_string = window.location.search;
-		var query_array = [], length = 0, hash = '', query = '';
-
-		// ?を取り除いて&で区切る
-		hash = query_string.slice(1).split('&');
-		length = hash.length;
-
-		// query_stringをkeyとvalueに分けてquery_arrayに格納
-		for(var i=0; i<length; i++) {
-			query = hash[i].split('='); // keyとvalueに分ける
-			query_array.push(query[0]);
-			query_array[query[0]] = decodeURI(query[1]);
-
-		}
+		query_array = getQueryString();
 		// レビュー画面に反映
 		$('#title').html(query_array['title']);
 		$('#review').html('レビュー: '+query_array['review']);

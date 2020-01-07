@@ -65,4 +65,7 @@ SubjectListCtrl.prototype.show = function(id) {
  * @param {int} id 科目ID
  * @return void
  */
-SubjectListCtrl.prototype.new = function(id) {}
+SubjectListCtrl.prototype.new = function(id) {
+	var erc = new EditReviewCtrl();
+	erc.new(id);
+}

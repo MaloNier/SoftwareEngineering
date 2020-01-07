@@ -22,7 +22,20 @@ EditReviewCtrl.prototype.new = function(id) {}
  * @param {int} id 科目ID
  * @return {void}
  */
-EditReviewCtrl.prototype.edit = function(id) {}
+EditReviewCtrl.prototype.edit = function(id) {
+	// 科目のタイトルを取得
+	var title = '';
+	$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
+		function(subject) {
+			title = subject['title'];
+		}
+	);
+
+	// EditReview.htmlにQUERY_STRINGを付加してページ遷移
+	location.href = '../html/EditReview.html'+
+		'?id='+id+
+		'&title='+title;
+}
 
 /**
  * レビュー文を投稿・保存する

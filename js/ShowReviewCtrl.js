@@ -21,7 +21,6 @@ ShowReviewCtrl.prototype.show = function(id) {
 	$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
 		function(subject) {
 			title = subject['title'];
-			// alert('title: '.title);
 		}
 	);
 
@@ -29,7 +28,6 @@ ShowReviewCtrl.prototype.show = function(id) {
 	$.getJSON('../php/Student.php', { method: 'getReviewText', id: id},
 		function(reviewText) {
 			review = reviewText;
-			// alert('review: '.review);
 		}
 	)
 	//$.ajaxSetup({async: true});

@@ -21,7 +21,6 @@ SubjectListCtrl.prototype.showList = function() {
 				$.getJSON('../php/Student.php', { method: 'getReviewText', id: id},
 					function(reviewText) {
 						review = reviewText;
-						// alert('review: '.review);
 					}
 				);
 
@@ -52,7 +51,6 @@ SubjectListCtrl.prototype.show = function(id) {
 
 	var src = new ShowReviewCtrl();
 	subList = src.show(id); // 科目名とレビューを取得
-	//alert('subList:'+subList);
 	location.href = '../html/ShowReview.html'+
 		'?id='+subList['id']+
 		'&title='+subList['title']+

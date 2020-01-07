@@ -38,10 +38,8 @@
 			query = hash[i].split('='); // keyとvalueに分ける
 			query_array.push(query[0]);
 			query_array[query[0]] = decodeURI(query[1]);
-			//alert('q0='+query[0]+' q1='+decodeURI(query[1]));
 
 		}
-		//alert('query: '+query_array['title']);
 		// レビュー画面に反映
 		$('#title').html(query_array['title']);
 		$('#review').html('レビュー: '+query_array['review']);

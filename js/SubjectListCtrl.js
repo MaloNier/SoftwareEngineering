@@ -16,9 +16,24 @@ SubjectListCtrl.prototype.showList = function() {
 	$.getJSON('../php/Student.php', { method: 'subjects'},
 		function(json) {
 			for(var id of json) {
+				var review = '';
+				// 科目のレビューを取得して有無を確認
+				$.getJSON('../php/Student.php', { method: 'getReviewText', id: id},
+					function(reviewText) {
+						review = reviewText;
+						// alert('review: '.review);
+					}
+				);
+
+				// 表示
 				$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
 					function(subject) {
-						$('#subjects').append('<li><a class="subject" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a></li>');
+						if(review == '') {
+							$('#subjects').append('<li><a class="subject" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a></li>');
+						}
+						else {
+							$('#subjects').append('<li><a class="subject" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a> <span class="badge badge-danger">レビューあり</span></li>');
+						}
 					}
 				);
 			}

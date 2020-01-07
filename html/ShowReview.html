@@ -20,18 +20,23 @@
 		<script src="../js/ShowReviewCtrl.js"></script>
 		<script src="../js/EditReviewCtrl.js"></script>
 
+		<!-- QUERY_STRINGを取得しておく -->
+		<script>
+			var query_array = getQueryString();
+			var showReviewCtrl = new ShowReviewCtrl();
+		</script>
+
 		<title>和歌山大学 履修登録</title>
 	</head>
 	<body>
 		<h1 id="title"></h1>
 		<p id="review"></p>
 
-		<input type="button" value="編集"/>
+		<input type="button" value="編集" onclick="showReviewCtrl.edit(query_array['id']);"/>
 	</body>
 
 	<!-- レビュー文を表示 -->
 	<script>
-		query_array = getQueryString();
 		// レビュー画面に反映
 		$('#title').html(query_array['title']);
 		$('#review').html('レビュー: '+query_array['review']);

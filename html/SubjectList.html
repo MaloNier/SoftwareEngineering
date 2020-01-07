@@ -44,19 +44,19 @@
 		<!-- 科目一覧を表示 -->
 		<script>
 			$(function() {
-				var slc = new SubjectListCtrl();
-				slc.showList();
+				var subjectListCtrl = new SubjectListCtrl();
+				subjectListCtrl.showList();
 			});
 
 			$(function() {
-				var slc = new SubjectListCtrl();
+				var subjectListCtrl = new SubjectListCtrl();
 				$('#subjects').on('click', '.subject',
 					function(e) {
 						e.preventDefault();
 						e.stopPropagation();
 						var id = $(this).attr('id');
 						id = parseInt(id.replace('sub_', ''), 10);
-						slc.show(id);
+						subjectListCtrl.show(id);
 					}
 				);
 			});

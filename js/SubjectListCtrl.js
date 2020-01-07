@@ -13,6 +13,7 @@ function SubjectListCtrl() {}
  * @return void
  */
 SubjectListCtrl.prototype.showList = function() {
+	$.ajaxSetup({async: false}); // 動作を同期に
 	$.getJSON('../php/Student.php', { method: 'subjects'},
 		function(json) {
 			for(var id of json) {
@@ -38,6 +39,7 @@ SubjectListCtrl.prototype.showList = function() {
 			}
 		}
 	);
+	$.ajaxSetup({async: false}); // 動作を非同期に
 }
 
 /**
@@ -47,16 +49,8 @@ SubjectListCtrl.prototype.showList = function() {
  * @return void
  */
 SubjectListCtrl.prototype.show = function(id) {
-	$.ajaxSetup({async: false}); // 動作を同期に
-
 	var src = new ShowReviewCtrl();
-	subList = src.show(id); // 科目名とレビューを取得
-	location.href = '../html/ShowReview.html'+
-		'?id='+subList['id']+
-		'&title='+subList['title']+
-		'&review='+subList['review'];
-
-	$.ajaxSetup({async: true}); // 動作を非同期に
+	src.show(id); // 科目名とレビューを取得
 }
 
 /**

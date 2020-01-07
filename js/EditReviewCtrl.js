@@ -24,6 +24,7 @@ EditReviewCtrl.prototype.new = function(id) {}
  */
 EditReviewCtrl.prototype.edit = function(id) {
 	// 科目のタイトルを取得
+	$.ajaxSetup({async: false}); // 動作を同期に
 	var title = '';
 	$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
 		function(subject) {
@@ -35,6 +36,7 @@ EditReviewCtrl.prototype.edit = function(id) {
 	location.href = '../html/EditReview.html'+
 		'?id='+id+
 		'&title='+title;
+	$.ajaxSetup({async: true}); // 動作を非同期に
 }
 
 /**

@@ -23,7 +23,16 @@
 		<title>和歌山大学 履修登録</title>
 	</head>
 	<body>
-		<h1></h1>
-
+		<h1 id="title"></h1>
+		<form method="post">
+			<textarea name="newReview" cols="100" rows="15" placeholder="ここにレビューを入力してください"></textarea>
+			<p><input type="submit" value="保存"/></p>
+		</form>
 	</body>
+
+	<script>
+		query_array = getQueryString();
+		// レビュー画面に反映
+		$('#title').html(query_array['title']);
+	</script>
 </html>

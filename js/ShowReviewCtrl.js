@@ -53,4 +53,6 @@ ShowReviewCtrl.prototype.edit = function(id) {
  *
  * @return void
  */
-ShowReviewCtrl.prototype.close = function() {}
+ShowReviewCtrl.prototype.close = function() {
+	location.href = '../html/SubjectList.html';
+}

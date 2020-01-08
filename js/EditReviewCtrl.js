@@ -65,6 +65,7 @@ EditReviewCtrl.prototype.save = function(id, text) {
 	$.ajaxSetup({async: false}); // 動作を同期に
 
 	$.getJSON('../php/Student.php', { method: 'setReviewText', id: id, text: text}, function() {});
+	alert('text: '+text);
 	location.href = '../html/SubjectList.html';
 
 	$.ajaxSetup({async: true}); // 動作を非同期に

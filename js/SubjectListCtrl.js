@@ -29,10 +29,10 @@ SubjectListCtrl.prototype.showList = function() {
 				$.getJSON('../php/Subject.php', { method: 'getTitle', id: id},
 					function(subject) {
 						if(review == '') {
-							$('#subjects').append('<li><a class="subject" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a></li>');
+							$('#subjects').append('<li class="list-group-item"><a class="subject" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a></li>');
 						}
 						else {
-							$('#subjects').append('<li><a class="subject_reviewed" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a> <span class="badge badge-danger">レビューあり</span></li>');
+							$('#subjects').append('<li class="list-group-item"><a class="subject_reviewed" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a> <span class="badge badge-danger">レビューあり</span></li>');
 						}
 					}
 				);

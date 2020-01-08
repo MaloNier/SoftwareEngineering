@@ -35,13 +35,15 @@
 		<title>和歌山大学 履修登録</title>
 	</head>
 	<body>
-		<h1>履修科目一覧</h1>
+		<nav class="navbar navbar-light mb-2" style="background-color:#01cbfd;">
+			<p class="h3">履修科目一覧</p>
+		</nav>
 
-		<div class="container">
-			<ul id="subjects"></ul>
+		<div class="container-fluid">
+			<ul class="list-group" id="subjects"></ul>
 
 			<!-- 再読み込みボタン -->
-			<input id="relaod_button" type="button" value="再読み込み" onclick="reload();"/>
+			<input type="button" class="btn btn-primary btn-block" id="relaod_button" value="再読み込み" onclick="reload();"/>
 		</div>
 
 		<!-- 科目一覧を表示 -->

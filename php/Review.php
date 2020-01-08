@@ -7,7 +7,6 @@ ini_set('display_errors',1);
  *
  * @property int $subjectId 科目ID
  * @property string $text レビュー文
- * @property array $tempReview 課題を満たすためのとりあえずのレビュー
  * @method string getText()
  * @method void setText()
  */

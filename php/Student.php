@@ -53,11 +53,11 @@ $st->tempReview = [
 	new Review(2, 'temp02'),
 	new Review(3, 'temp03'),
 	new Review(4, 'temp04'),
-	new Review(5, 'temp05'),
-	new Review(6, 'temp06'),
-	new Review(7, 'temp07'),
-	new Review(8, 'temp08'),
-	new Review(9, 'temp09')
+	new Review(5, ''),
+	new Review(6, ''),
+	new Review(7, ''),
+	new Review(8, ''),
+	new Review(9, '')
 ];
 
 if($_GET['method'] === 'subjects') {

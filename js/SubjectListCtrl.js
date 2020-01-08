@@ -32,7 +32,7 @@ SubjectListCtrl.prototype.showList = function() {
 							$('#subjects').append('<li><a class="subject" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a></li>');
 						}
 						else {
-							$('#subjects').append('<li><a class="subject" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a> <span class="badge badge-danger">レビューあり</span></li>');
+							$('#subjects').append('<li><a class="subject_reviewed" id="sub_'+subject['id']+'" href="#" click>'+subject['title']+'</a> <span class="badge badge-danger">レビューあり</span></li>');
 						}
 					}
 				);

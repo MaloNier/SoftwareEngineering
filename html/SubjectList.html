@@ -53,13 +53,25 @@
 
 			$(function() {
 				var subjectListCtrl = new SubjectListCtrl();
-				$('#subjects').on('click', '.subject',
+				// レビューあり
+				$('#subjects').on('click', '.subject_reviewed',
 					function(e) {
 						e.preventDefault();
 						e.stopPropagation();
 						var id = $(this).attr('id');
 						id = parseInt(id.replace('sub_', ''), 10);
 						subjectListCtrl.show(id);
+					}
+				);
+
+				// レビューなし
+				$('#subjects').on('click', '.subject',
+					function(e) {
+						e.preventDefault();
+						e.stopPropagation();
+						var id = $(this).attr('id');
+						id = parseInt(id.replace('sub_', ''), 10);
+						subjectListCtrl.new(id);
 					}
 				);
 			});

@@ -27,7 +27,8 @@ EditReviewCtrl.prototype.new = function(id) {
 		// EditReview.htmlにQUERY_STRINGを付加してページ遷移
 		location.href = '../html/EditReview.html'+
 			'?id='+id+
-			'&title='+title;
+			'&title='+title+
+			'&review=';
 		$.ajaxSetup({async: true}); // 動作を非同期に
 }
 
@@ -47,10 +48,14 @@ EditReviewCtrl.prototype.edit = function(id) {
 		}
 	);
 
+	// 科目のレビューをhtmlから取得
+	var review = $('#review').html();
+
 	// EditReview.htmlにQUERY_STRINGを付加してページ遷移
 	location.href = '../html/EditReview.html'+
 		'?id='+id+
-		'&title='+title;
+		'&title='+title+
+		'&review='+review;
 	$.ajaxSetup({async: true}); // 動作を非同期に
 }
 

@@ -48,11 +48,11 @@ class Student {
 
 $st = new Student();
 $st->tempReview = [
-	new Review(0, 'temp00'),
-	new Review(1, 'temp01'),
-	new Review(2, 'temp02'),
-	new Review(3, 'temp03'),
-	new Review(4, 'temp04'),
+	new Review(0, 'This is Sample Review. 00'),
+	new Review(1, 'This is Sample Review. 01'),
+	new Review(2, 'This is Sample Review. 02'),
+	new Review(3, 'This is Sample Review. 03'),
+	new Review(4, 'This is Sample Review. 04'),
 	new Review(5, ''),
 	new Review(6, ''),
 	new Review(7, ''),

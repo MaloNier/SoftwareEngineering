@@ -50,7 +50,7 @@
 			<h4 id="title"></h4>
 			<div class="form-group">
 				<form method="post">
-					<p><textarea name="newReview" class="form-control" placeholder="ここにレビューを入力してください"></textarea></p>
+					<p><textarea name="newReview" class="form-control" id="reviewForm"></textarea></p>
 
 					<div class="btn-group">
 						<input type="button" class="btn btn-primary" value="保存" onclick="editData();"/>
@@ -65,5 +65,11 @@
 		// レビュー画面に反映
 		$('#title').html('科目: '+query_array['title']);
 		$('#subject_id').val(query_array['id']);
+		if(query_array['review']==='') {
+			$('#reviewForm').attr('placeholder', 'ここにレビューを入力して下さい');
+		}
+		else {
+			$('#reviewForm').html(query_array['review']);
+		}
 	</script>
 </html>

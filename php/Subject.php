@@ -48,7 +48,7 @@ $sb = [
 	new Subject(6, '科学技術英語A'),
 	new Subject(7, 'システム要求分析・評価法'),
 	new Subject(8, 'データマイニング'),
-	new Subject(9, 'データサイエンス概論'),
+	new Subject(9, 'データサイエンス概論')
 ];
 
 if($_GET['method'] === 'getTitle') { // sd_1

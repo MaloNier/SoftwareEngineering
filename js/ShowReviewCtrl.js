@@ -29,8 +29,9 @@ ShowReviewCtrl.prototype.show = function(id) {
 		function(reviewText) {
 			review = reviewText;
 		}
-	)
+	);
 
+	// QUERY_STRINGを付与してShowReview.htmlへ遷移
 	location.href = '../html/ShowReview.html'+
 		'?id='+id+
 		'&title='+title+

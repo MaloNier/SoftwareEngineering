@@ -69,7 +69,7 @@
 			$('#reviewForm').attr('placeholder', 'ここにレビューを入力して下さい');
 		}
 		else {
-			$('#reviewForm').html(query_array['review']);
+			$('#reviewForm').html(decodeURI(query_array['review']));
 		}
 	</script>
 </html>

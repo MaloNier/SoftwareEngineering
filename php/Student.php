@@ -2,7 +2,7 @@
 header('content-type: application/json; charset=utf-8');
 ini_set('display_errors',1);
 
-require 'Review.php';
+require_once 'Review.php';
 /**
  * 学生のエンティティクラス
  *
@@ -31,7 +31,7 @@ class Student {
 	 * @return string 対象の科目のレビュー
 	 */
 	public function getReviewText($id) {
-		return $this->tempReview[$id]->getText($id);
+		return $this->reviewArray[$id]->getText($id);
 	}
 
 	/**
@@ -42,35 +42,34 @@ class Student {
 	 * @return void
 	 */
 	public function setReviewText($id, $text) {
-		return;
+		$this->reviewArray[$id]->setText($text);
 	}
 }
 
 $st = new Student();
-$st->tempReview = [
-	new Review(0, 'This is Sample Review. 00'),
-	new Review(1, 'This is Sample Review. 01'),
-	new Review(2, 'This is Sample Review. 02'),
-	new Review(3, 'This is Sample Review. 03'),
-	new Review(4, 'This is Sample Review. 04'),
-	new Review(5, ''),
-	new Review(6, ''),
-	new Review(7, ''),
-	new Review(8, ''),
-	new Review(9, '')
+$st->reviewArray = [
+	new Review(0),
+	new Review(1),
+	new Review(2),
+	new Review(3),
+	new Review(4),
+	new Review(5),
+	new Review(6),
+	new Review(7),
+	new Review(8),
+	new Review(9)
 ];
 
 if($_GET['method'] === 'subjects') {
 	echo json_encode($st->subjects());
 }
 else if($_GET['method'] === 'getReviewText') {
-	$id = $_GET['id'];
+	$id = (int)$_GET['id'];
 	$review = $st->getReviewText($id);
 	echo json_encode($review);
 }
 else if($_GET['method'] === 'setReviewText') {
-	$id = $_GET['id'];
-	$text = $_GET['text'];
-	$st->tempReview[$id]->setText($text);
+	$id = (int)$_GET['id'];
+	$text = urldecode($_GET['text']);
+	$st->setReviewText($id, $text);
 }
-exit();

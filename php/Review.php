@@ -7,22 +7,24 @@ ini_set('display_errors',1);
  *
  * @property int $subjectId 科目ID
  * @property string $text レビュー文
+ * @property string $path レビューが保存されているテキストファイルへのパス
  * @method string getText()
  * @method void setText()
  */
 class Review {
 	private $subjectId;
 	private $text;
+	private $path;
 
 	/**
 	 * コンストラクタ
 	 *
 	 * @param int $subjectId 科目ID
-	 * @param string $review レビュー文
 	 */
-	function __construct($subjectId, $review) {
+	function __construct($subjectId) {
 		$this->subjectId = $subjectId;
-		$this->text = $review;
+		$this->path = '../data/review/review'.$this->subjectId.'.txt';
+		$this->text = file_get_contents($this->path);
 	}
 
 	/**
@@ -31,7 +33,11 @@ class Review {
 	 * @return string レビュー文
 	 */
 	public function getText($id) {
-		return $this->text;
+		if($this->subjectId===$id) {
+			return $this->text;
+		}
+
+		return '';
 	}
 
 	/**
@@ -40,6 +46,7 @@ class Review {
 	 * @return void
 	 */
 	public function setText($text) {
-		$this->text = $text;
+		// テキストファイルの更新
+		file_put_contents($this->path, $text);
 	}
 }

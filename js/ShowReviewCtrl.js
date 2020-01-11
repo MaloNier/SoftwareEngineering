@@ -27,7 +27,7 @@ ShowReviewCtrl.prototype.show = function(id) {
 	// 科目のレビューを取得
 	$.getJSON('../php/Student.php', { method: 'getReviewText', id: id},
 		function(reviewText) {
-			review = reviewText;
+			review = encodeURI(reviewText);
 		}
 	);
 

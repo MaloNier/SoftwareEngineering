@@ -1,8 +1,6 @@
-textarea {
+textarea.form-control {
 	resize: none;
 	background-color: white;
-}
-
-.form-control[readonly]{
-	background-color: white;
+	line-height: 1.3;
+	height: calc(1.3rem*10);
 }

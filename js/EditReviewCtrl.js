@@ -49,7 +49,7 @@ EditReviewCtrl.prototype.edit = function(id) {
 	);
 
 	// 科目のレビューをhtmlから取得
-	var review = $('#review').html();
+	var review = encodeURI($('#review').html());
 
 	// EditReview.htmlにQUERY_STRINGを付加してページ遷移
 	location.href = '../html/EditReview.html'+
